@@ -254,7 +254,7 @@ const MyStoryPage: React.FC = () => {
           {/* Landscape Image 2 */}
           <div className="mb-16">
             <img
-              src="https://i.imgur.com/BnLEQSZ.png"
+              src="/images/my-story-expertise.png"
               alt="Technology, Business, Creativity"
               className="w-full h-auto lg:h-80 object-cover rounded-lg"
             />

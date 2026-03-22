@@ -24,7 +24,7 @@ const PortfolioSection: React.FC = () => {
       id: 'ja-career-connect',
       title: 'JAA Career Connect Alumni Platform',
       description: 'A comprehensive alumni networking platform designed to empower young professionals across Africa with career opportunities and mentorship.',
-      image: 'https://i.imgur.com/8fxoygW.png',
+      image: '/images/thumbnail-jaa-connect.svg',
       tags: ['UX Design', 'User Research', 'Dashboard Design'],
       category: 'Web App'
     },
@@ -32,7 +32,7 @@ const PortfolioSection: React.FC = () => {
       id: 'philafun-mobile-app',
       title: 'PhilaFun Gamified Fundraising Application',
       description: 'A gamified mobile fundraising app that transforms philanthropy by valuing all forms of giving and building donor trust.',
-      image: 'https://i.imgur.com/FvBMgFT.png',
+      image: '/images/thumbnail-philafun.svg',
       tags: ['Mobile Design', 'Gamification', 'Social Impact'],
       category: 'Mobile App'
     },
@@ -40,7 +40,7 @@ const PortfolioSection: React.FC = () => {
       id: 'dfsa-suptech',
       title: 'Dubai Financial Services Authority SupTech Platform',
       description: 'A regulatory technology platform designed for financial supervision and compliance monitoring.',
-      image: 'https://i.imgur.com/EcjztD5.png',
+      image: '/images/thumbnail-dfsa.svg',
       tags: ['RegTech', 'Fintech', 'Dashboard Design'],
       category: 'Web App',
       isProtected: true,

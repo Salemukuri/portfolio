@@ -12,6 +12,7 @@ const DQCaseStudy: React.FC = () => {
   const [showControls, setShowControls] = useState(true);
   const [volume, setVolume] = useState(1);
   const [muted, setMuted] = useState(false);
+  const [buffering, setBuffering] = useState(false);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const onVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -261,6 +262,24 @@ const DQCaseStudy: React.FC = () => {
           .hero-title { font-size: 36px; }
           .vol-slider { width: 48px; }
         }
+        /* Buffering spinner */
+        .buffer-spinner {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 48px;
+          height: 48px;
+          border: 3px solid rgba(255,255,255,0.25);
+          border-top-color: white;
+          border-radius: 50%;
+          animation: spin 0.8s linear infinite;
+          z-index: 20;
+          pointer-events: none;
+        }
+        @keyframes spin {
+          to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
       `}</style>
 
       <div className="pt-0 min-h-screen">
@@ -283,20 +302,27 @@ const DQCaseStudy: React.FC = () => {
         >
           <video
             ref={videoRef}
-            src="/images/dq/DQ Corp Web Video.mp4"
+            src="/images/dq/DQ Corp Web Video-compressed.mp4"
             poster="/images/dq/DQ-casestudy-thumbnail.png"
             playsInline
+            preload="none"
             onTimeUpdate={onTimeUpdate}
             onLoadedMetadata={onLoadedMetadata}
             onEnded={() => { setPlaying(false); setShowControls(true); }}
+            onWaiting={() => setBuffering(true)}
+            onCanPlay={() => setBuffering(false)}
+            onPlaying={() => setBuffering(false)}
             onClick={togglePlay}
             style={{ cursor: 'pointer' }}
           />
 
-          {/* Centre play/pause overlay — hide when playing and controls hidden */}
+          {/* Buffering spinner */}
+          {buffering && <div className="buffer-spinner" />}
+
+          {/* Centre play/pause overlay — hide when playing and controls hidden, or when buffering */}
           <div
             className={`play-overlay ${playing ? '' : 'is-play'}`}
-            style={{ opacity: !playing || showControls ? 1 : 0, pointerEvents: !playing || showControls ? 'auto' : 'none' }}
+            style={{ opacity: buffering ? 0 : (!playing || showControls ? 1 : 0), pointerEvents: !playing || showControls ? 'auto' : 'none' }}
             onClick={togglePlay}
           >
             {playing ? (
@@ -561,7 +587,7 @@ const DQCaseStudy: React.FC = () => {
                   This synergy is the foundation of what DQ terms as the Digital Cognitive Organization (DCO).
                 </p>
                 <div className="bg-gray-50 p-6 rounded-xl mb-10">
-                  <img src="/images/dq/Imagery.gif" alt="DQ imagery system showing humans and AI working in harmony" className="w-full md:w-3/4 mx-auto rounded-lg" loading="lazy" />
+                  <video src="/images/dq/Imagery.mp4" autoPlay loop muted playsInline className="w-full md:w-3/4 mx-auto rounded-lg" />
                 </div>
 
                 <h3 className="subsection-heading">Homepage Redesign</h3>
@@ -569,7 +595,7 @@ const DQCaseStudy: React.FC = () => {
                   The old homepage failed its most basic job - telling visitors what DQ does. We redesigned it to lead with a bold, jargon-free hero statement that immediately communicates DQ's value. Within 5 seconds, a visitor now understands who DQ is, what they do, and why it matters. Every section was intentionally designed to guide the visitor toward a single outcome: conversion.
                 </p>
                 <div className="bg-gray-50 p-6 rounded-xl mb-10">
-                  <img src="/images/dq/Homepage.gif" alt="DQ homepage redesign walkthrough" className="w-full md:w-3/4 mx-auto rounded-lg" loading="lazy" />
+                  <video src="/images/dq/Homepage.mp4" autoPlay loop muted playsInline className="w-full md:w-3/4 mx-auto rounded-lg" />
                 </div>
 
                 <h3 className="subsection-heading">Brand Positioning</h3>
@@ -577,7 +603,7 @@ const DQCaseStudy: React.FC = () => {
                   The concepts of a Digital Cognitive Organisation (DCO) and Digital Business Platforms (DBP) was DQ's biggest differentiator. We gave it dedicated real estate, using plain language and intentional visuals to make the DCO vision tangible and compelling to a non-technical decision maker.
                 </p>
                 <div className="bg-gray-50 p-6 rounded-xl mb-10">
-                  <img src="/images/dq/Design 4.0.gif" alt="DQ brand positioning and DCO vision" className="w-full md:w-3/4 mx-auto rounded-lg" loading="lazy" />
+                  <video src="/images/dq/Design4.mp4" autoPlay loop muted playsInline className="w-full md:w-3/4 mx-auto rounded-lg" />
                 </div>
 
                 <h3 className="subsection-heading">Services Restructure</h3>

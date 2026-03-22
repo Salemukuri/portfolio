@@ -161,13 +161,13 @@ const HeroSection: React.FC = () => {
         }
 
         .designer-half {
-          background-image: url('https://i.imgur.com/ndQ7r12.png');
+          background-image: url('/images/hero-product-designer.svg');
           clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
           z-index: 2;
         }
 
         .coder-half {
-          background-image: url('https://i.imgur.com/w9N5W4U.png');
+          background-image: url('/images/hero-product-owner.svg');
           clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
           z-index: 1;
         }

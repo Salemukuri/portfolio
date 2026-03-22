@@ -4,7 +4,9 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
-import CaseStudyPage from './pages/CaseStudyPage';
+import DQCaseStudy from './pages/DQCaseStudy';
+import JAACaseStudy from './pages/JAACaseStudy';
+import PhilaFunCaseStudy from './pages/PhilaFunCaseStudy';
 import MyStoryPage from './pages/MyStoryPage';
 import PortfolioPage from './pages/PortfolioPage';
 import Footer from './components/Footer';
@@ -30,7 +32,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/case-study/:id" element={<CaseStudyPage />} />
+          <Route path="/case-study/dq-corporate-website" element={<DQCaseStudy />} />
+          <Route path="/case-study/ja-career-connect" element={<JAACaseStudy />} />
+          <Route path="/case-study/philafun-mobile-app" element={<PhilaFunCaseStudy />} />
           <Route path="/my-story" element={<MyStoryPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
         </Routes>
