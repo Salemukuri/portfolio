@@ -6,12 +6,12 @@ const AboutPage: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState(0);
 
   const galleryImages = [
-    'https://i.imgur.com/JlpoJvw.jpeg',
-    'https://i.imgur.com/9RkvCcG.jpeg',
-    'https://i.imgur.com/ShwXWzA.jpeg',
-    'https://i.imgur.com/jcmibh3.jpeg',
-    'https://i.imgur.com/jret2ZC.jpeg',
-    'https://i.imgur.com/CJ5FwoC.jpeg',
+    '/images/about-salem-portrait.jpg',
+    '/images/about-salem-golf.jpg',
+    '/images/about-painting1.jpg',
+    '/images/about-painting2.jpg',
+    '/images/about-painting3.jpg',
+    '/images/about-painting4.jpg',
   ];
 
   const randomFacts = [
@@ -198,7 +198,7 @@ const AboutPage: React.FC = () => {
         {/* Image - Always second on mobile */}
         <div className="order-2 flex justify-center">
           <img
-            src="https://i.imgur.com/iVjxyMH.png"
+            src="/images/about-vintage-soda-cans.png"
             alt="Vintage soda cans"
             className="w-full h-80 object-cover rounded-lg max-w-xs sm:max-w-sm md:max-w-md"
           />
@@ -270,7 +270,7 @@ const AboutPage: React.FC = () => {
       {/* Image - Right on all screens */}
       <div className="order-2">
         <img
-          src="https://i.imgur.com/zgn3dja.png"
+          src="/images/about-my-story.png"
           alt="Person working"
           className="w-full object-cover rounded-lg"
         />
@@ -286,7 +286,7 @@ const AboutPage: React.FC = () => {
       {/* Image - Left on desktop, second on mobile */}
       <div className="order-2 lg:order-1">
         <img
-          src="https://i.imgur.com/G6oWUNL.jpeg"
+          src="/images/about-design-system.jpg"
           alt="Design System"
           className="w-full object-cover rounded-lg"
         />

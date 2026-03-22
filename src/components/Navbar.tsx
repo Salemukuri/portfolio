@@ -86,7 +86,7 @@ const Navbar: React.FC = () => {
   onClick={() => window.scrollTo(0, 0)}
 >
   <img
-    src="https://i.imgur.com/kDyCgtL.png"
+    src="/images/salem-portfolio-logo.svg"
     alt="Salem Mukuri - Product Designer Logo"
     className="h-full max-h-10 md:max-h-12 object-contain"
     loading="eager"

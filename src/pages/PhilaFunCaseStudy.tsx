@@ -3,11 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import MoreCaseStudies from '../components/MoreCaseStudies';
 
-interface PhilaFunCaseStudyProps {
-  study: any;
-}
 
-const PhilaFunCaseStudy: React.FC<PhilaFunCaseStudyProps> = ({ study }) => {
+const PhilaFunCaseStudy: React.FC = () => {
   return (
     <>
       <style>{`
@@ -140,12 +137,12 @@ const PhilaFunCaseStudy: React.FC<PhilaFunCaseStudyProps> = ({ study }) => {
 
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-8 sm:px-12 lg:px-16">
-            <h1 className="hero-title mb-12">{study.subtitle}</h1>
+            <h1 className="hero-title mb-12">Designing a Gamified Fundraising Mobile Application for PhilaFun</h1>
 
             <div className="border-t border-gray-300 mt-16">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between px-6 pt-10 gap-4 md:gap-8">
-                <p className="text-sm text-gray-700">ROLE: {study.role.toUpperCase()}</p>
-                <p className="text-sm text-gray-700">PRODUCT: {study.product.toUpperCase()}</p>
+                <p className="text-sm text-gray-700">ROLE: PRODUCT DESIGNER</p>
+                <p className="text-sm text-gray-700">PRODUCT: PHILAFUN MOBILE APP</p>
                 <div className="flex items-center gap-4">
                   <p className="text-sm text-gray-700">TOOLS:</p>
                   <div className="flex gap-2">
@@ -193,7 +190,7 @@ const PhilaFunCaseStudy: React.FC<PhilaFunCaseStudyProps> = ({ study }) => {
             </ul>
 
             <p className="body-text font-medium">
-              {study.problemStatement}
+              PhilaFun aims to only feature IRS-approved 501(c)(3) charities, ensuring legitimacy — but requiring a design that builds visibility for these vetted nonprofits while making every supporter feel seen and valued.
             </p>
           </div>
         </section>
@@ -547,11 +544,7 @@ const PhilaFunCaseStudy: React.FC<PhilaFunCaseStudyProps> = ({ study }) => {
                   Personalization through cause selection sets the stage for meaningful engagement from the go.
                 </p>
                 <div className="bg-gray-50 p-6 rounded-xl mb-8">
-<img
-                src="/images/philafun/philafun-onboarding.gif"
-                alt="onboarding takethrough gif"
-                className="mx-auto rounded-lg w-full md:w-3/4"
-              />
+                  <video src="/images/philafun/philafun-onboarding.mp4" autoPlay loop muted playsInline className="mx-auto rounded-lg w-full md:w-3/4" />
                 </div>
 
                 <h4 className="text-xl font-medium mb-4">Trust building UX</h4>
@@ -571,11 +564,7 @@ const PhilaFunCaseStudy: React.FC<PhilaFunCaseStudyProps> = ({ study }) => {
                   I designed this to be a focused, emotionally engaging layout that presents the campaigns’s mission, progress, and credibility at a glance.
                 </p>
                 <div className="bg-gray-50 p-6 rounded-xl mb-8">
-<img
-                src="/images/philafun/philafun-campaign-details-page.gif"
-                alt="campaign details page"
-                className="mx-auto rounded-lg w-full md:w-3/4"
-              />
+                  <video src="/images/philafun/philafun-campaign-details-page.mp4" autoPlay loop muted playsInline className="mx-auto rounded-lg w-full md:w-3/4" />
                 </div>
 
                 <h4 className="text-xl font-medium mb-4">Delightful Donation Experience</h4>
@@ -586,11 +575,7 @@ const PhilaFunCaseStudy: React.FC<PhilaFunCaseStudyProps> = ({ study }) => {
                   I added a "Donate Anonymously" feature to accommodate users who, during the user research interviews, expressed that they do not expect recognition after donating. The confetti celebration screen and point animation make giving feel meaningful, even for $10.
                 </p>
                 <div className="bg-gray-50 p-6 rounded-xl mb-8">
-                  <img
-                src="/images/philafun/philafun-donation-experience.gif"
-                alt="donation flow"
-                className="mx-auto rounded-lg w-full md:w-3/4"
-              />
+                  <video src="/images/philafun/philafun-donation-experience.mp4" autoPlay loop muted playsInline className="mx-auto rounded-lg w-full md:w-3/4" />
                 </div>
 
                 <h4 className="text-xl font-medium mb-4">Gamification</h4>
@@ -619,11 +604,7 @@ const PhilaFunCaseStudy: React.FC<PhilaFunCaseStudyProps> = ({ study }) => {
                   Every screen is built to reduce friction, from onboarding, campaign creation to endorsement requests.
                 </p>
                 <div className="bg-gray-50 p-6 rounded-xl mb-8">
-                  <img
-                src="/images/philafun/philafun-charity-module.gif"
-                alt="charity module"
-                className="mx-auto rounded-lg w-full md:w-3/4"
-              />
+                  <video src="/images/philafun/philafun-charity-module.mp4" autoPlay loop muted playsInline className="mx-auto rounded-lg w-full md:w-3/4" />
                 </div>
 
                 <h4 className="text-xl font-medium mb-4">Developer Handoff</h4>
