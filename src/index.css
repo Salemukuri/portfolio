@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/fonts/Proxima Nova Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/fonts/Proxima-Nova-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/fonts/Proxima-Nova-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/fonts/Proxima-Nova-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/fonts/Proxima-Nova-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UrbanDecay';
+  src: url('/fonts/urban-decay.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YouMurderer';
+  src: url('/fonts/Youmurdererbb-pwoK.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PleaseShowMeLove';
+  src: url('/fonts/Please Show Me Love Demo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Only keep what Tailwind can't handle: */
+@layer base {
+  * {
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+/* Optional: Fix third-party library styles */
+@layer components {
+  .third-party-button {
+    @apply px-4 py-2; /* Tailwind-ify */
+  }
+}
+/* Force font sizes for persona sections */
+.persona-metadata,
+.persona-metadata span {
+  font-size: 13px !important;
+}
+
+.persona-tags,
+.persona-tags span {
+  font-size: 13px !important;
+}
+
+.persona-subheading {
+  font-size: 13px !important;
+}
+
+.persona-text {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+/* Add these for list items specifically */
+.persona-content li,
+.persona-content ul li,
+.persona-content ol li {
+  font-size: 13px !important;
+}
+
+/* Or be even more specific */
+.persona-text,
+.persona-text li,
+.persona-content .persona-text li {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
