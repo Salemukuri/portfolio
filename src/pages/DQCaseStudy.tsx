@@ -525,7 +525,7 @@ const DQCaseStudy: React.FC = () => {
                 {/* Pillar 2 */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
                   <div className="bg-gray-50 p-6 rounded-xl">
-                    <img src="/images/dq/DQ-DNA.png" alt="DQ surfacing the brand DNA through intentional copy and imagery" className="w-full rounded-lg" loading="lazy" />
+                    <img src="/images/dq/DQ-DNA.svg" alt="DQ surfacing the brand DNA through intentional copy and imagery" className="w-full rounded-lg" loading="lazy" />
                   </div>
                   <div>
                     <p className="body-text">
