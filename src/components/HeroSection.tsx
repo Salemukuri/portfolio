@@ -285,7 +285,7 @@ const HeroSection: React.FC = () => {
       <section className="hero-container">
         {/* Mobile Hero Image (hidden on desktop) */}
         <img
-          src="/mobile-hero.png"
+          src="/images/mobile-hero.svg"
           alt="Salem Mukuri - Product Designer Portfolio showcasing UX/UI design and user research projects"
           className="mobile-hero-image"
           loading="eager"
