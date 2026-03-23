@@ -51,8 +51,10 @@ const HeroSection: React.FC = () => {
         const resetState = () => {
           designerHalf.style.clipPath = 'polygon(0 0, 50% 0, 50% 100%, 0% 100%)';
           designerHalf.style.zIndex = '2';
+          designerHalf.style.animation = 'none';
           coderHalf.style.clipPath = 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)';
           coderHalf.style.zIndex = '1';
+          coderHalf.style.animation = 'none';
           leftColumn.style.opacity = '1';
           rightColumn.style.opacity = '1';
         };
@@ -162,14 +164,28 @@ const HeroSection: React.FC = () => {
 
         .designer-half {
           background-image: url('/images/hero-product-designer.svg');
-          clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+          clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+          background-position: center center;
           z-index: 2;
+          animation: slideInLeft 0.8s cubic-bezier(0.34, 1.2, 0.64, 1) 0.2s forwards;
         }
 
         .coder-half {
           background-image: url('/images/hero-product-owner.svg');
-          clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+          clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+          background-position: center center;
           z-index: 1;
+          animation: slideInRight 0.8s cubic-bezier(0.34, 1.2, 0.64, 1) 0.2s forwards;
+        }
+
+        @keyframes slideInLeft {
+          from { clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%); }
+          to   { clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%); }
+        }
+
+        @keyframes slideInRight {
+          from { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+          to   { clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%); }
         }
 
         .mobile-hero-image {
