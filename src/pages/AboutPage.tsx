@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 
@@ -30,6 +30,42 @@ const AboutPage: React.FC = () => {
     { name: 'Gardening', percentage: 75, color: 'bg-amber-500' },
     { name: 'Vibe Coding', percentage: 85, color: 'bg-red-400' },
   ];
+
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const [animated, setAnimated] = useState(false);
+  const [displayValues, setDisplayValues] = useState(skills.map(() => 0));
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animated) {
+          setAnimated(true);
+          // Tick up each percentage counter
+          skills.forEach((skill, i) => {
+            const duration = 1200;
+            const steps = 60;
+            const increment = skill.percentage / steps;
+            let current = 0;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= skill.percentage) {
+                current = skill.percentage;
+                clearInterval(timer);
+              }
+              setDisplayValues(prev => {
+                const next = [...prev];
+                next[i] = Math.round(current);
+                return next;
+              });
+            }, duration / steps);
+          });
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (skillsRef.current) observer.observe(skillsRef.current);
+    return () => observer.disconnect();
+  }, [animated]);
 
   return (
     <>
@@ -215,7 +251,7 @@ const AboutPage: React.FC = () => {
               <h2 className="skills-heading">My skills</h2>
             </div>
             
-            <div className="relative flex justify-center">
+            <div className="relative flex justify-center" ref={skillsRef}>
               {/* Y-axis labels */}
               <div className="absolute left-2 top-0 h-80 flex flex-col justify-between text-gray-400" style={{ fontSize: '18px' }}>
                 <span>Jedi</span>
@@ -230,11 +266,14 @@ const AboutPage: React.FC = () => {
                   <div key={skill.name} className="flex flex-col items-center">
                     <div className="relative flex flex-col justify-end h-72 w-36">
                       <div
-                        className={`${skill.color} rounded-t-lg transition-all duration-1000 ease-out flex flex-col items-center justify-end pb-6 px-4`}
-                        style={{ height: `${(skill.percentage / 100) * 100}%` }}
+                        className={`${skill.color} rounded-t-lg flex flex-col items-center justify-end pb-6 px-4`}
+                        style={{
+                          height: animated ? `${(skill.percentage / 100) * 100}%` : '0%',
+                          transition: `height 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 120}ms`,
+                        }}
                       >
                         <div className="text-white text-center">
-                          <div className="text-5xl font-light mb-1">{skill.percentage}</div>
+                          <div className="text-5xl font-light mb-1">{displayValues[index]}</div>
                           <div className="text-xl font-light">%</div>
                         </div>
                         <div className="text-white font-medium text-sm mt-6 text-center leading-tight">
