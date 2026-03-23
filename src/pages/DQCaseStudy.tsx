@@ -524,10 +524,10 @@ const DQCaseStudy: React.FC = () => {
 
                 {/* Pillar 2 */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
-                  <div className="bg-gray-50 p-6 rounded-xl">
+                  <div className="bg-gray-50 p-6 rounded-xl order-2 lg:order-1">
                     <img src="/images/dq/DQ-DNA.svg" alt="DQ surfacing the brand DNA through intentional copy and imagery" className="w-full rounded-lg" loading="lazy" />
                   </div>
-                  <div>
+                  <div className="order-1 lg:order-2">
                     <p className="body-text">
                       <span className="font-semibold">2. Surface the DNA:</span> We made DQ's beliefs tangible through intentional copy, imagery of human and AI working together, and clear articulation of the DCO vision.
                     </p>
@@ -548,10 +548,10 @@ const DQCaseStudy: React.FC = () => {
 
                 {/* Pillar 4 */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  <div className="bg-gray-50 p-6 rounded-xl">
+                  <div className="bg-gray-50 p-6 rounded-xl order-2 lg:order-1">
                     <img src="/images/dq/DQ-service-list.png" alt="DQ sector-specific services restructure" className="w-full rounded-lg" loading="lazy" />
                   </div>
-                  <div>
+                  <div className="order-1 lg:order-2">
                     <p className="body-text">
                       <span className="font-semibold">4. Structure the Complexity:</span> We restructured the services offering into 11 sector-specific pages, each with tailored copy and a custom intake form so any client could immediately see themselves in DQ's offering.
                     </p>
