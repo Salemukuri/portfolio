@@ -242,7 +242,7 @@ const PortfolioPage: React.FC = () => {
         }
 
         .pin-card-title {
-          font-size: 15px;
+          font-size: 18px;
           font-weight: 500;
           line-height: 1.4;
           color: #333333;
@@ -352,9 +352,9 @@ const PortfolioPage: React.FC = () => {
 
           {/* Graffiti quotes — 3 UX mantras sprayed on the wall */}
 
-          {/* "Don't Make Me Think" — top left, angled up */}
+          {/* "Don't Make Me Think" — top left, horizontal */}
           <svg
-            style={{ position: 'absolute', top: '2%', left: '3%', opacity: 0.22, pointerEvents: 'none', transform: 'rotate(-4deg)' }}
+            style={{ position: 'absolute', top: '0%', left: '18%', opacity: 0.22, pointerEvents: 'none' }}
             width="340" height="80" viewBox="0 0 340 80" fill="none"
           >
             <filter id="roughen1">
@@ -463,13 +463,18 @@ const PortfolioPage: React.FC = () => {
             <path d="M 226 0 C 226 12, 225 26, 224 42" stroke="#7CA300" strokeWidth="4.5" strokeLinecap="round" fill="none" opacity="0.8"/>
             <ellipse cx="224" cy="43" rx="3.5" ry="5" fill="#7CA300" opacity="0.7"/>
           </svg>
-          {/* "Friction is the enemy" — HTML text with Urban Decay font */}
+          {/* "Friction is the enemy" — HTML text with Urban Decay font + arc decoration */}
           <div style={{
             position: 'absolute', top: '52%', left: '50%',
-            transform: 'translateX(-50%) rotate(6deg)',
+            transform: 'translateX(-50%)',
             opacity: 0.28, pointerEvents: 'none',
             whiteSpace: 'nowrap',
+            display: 'inline-block',
           }}>
+            {/* Top arc */}
+            <svg style={{ position: 'absolute', top: '-38px', left: '50%', transform: 'translateX(-50%)', overflow: 'visible' }} width="160" height="40" viewBox="0 0 160 40" fill="none">
+              <path d="M 10 38 Q 80 -10 150 38" stroke="#333" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+            </svg>
             <span style={{
               fontFamily: "'YouMurderer', 'Arial Black', Impact, sans-serif",
               fontSize: '42px',
@@ -479,21 +484,24 @@ const PortfolioPage: React.FC = () => {
             }}>
               Friction is the enemy
             </span>
+            {/* Bottom arc */}
+            <svg style={{ position: 'absolute', bottom: '-38px', left: '50%', transform: 'translateX(-50%)', overflow: 'visible' }} width="160" height="40" viewBox="0 0 160 40" fill="none">
+              <path d="M 10 2 Q 80 50 150 2" stroke="#333" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+            </svg>
           </div>
 
           {/* "You are not your user" — bottom right */}
           <div style={{
-            position: 'absolute', bottom: '22%', right: '8%',
-            transform: 'rotate(-3deg)',
+            position: 'absolute', bottom: '22%', right: '18%',
             opacity: 0.26, pointerEvents: 'none',
             whiteSpace: 'nowrap',
           }}>
             <span style={{
-              fontFamily: "'UrbanDecay', 'Arial Black', Impact, sans-serif",
+              fontFamily: "'Polla', cursive",
               fontSize: '36px',
               fontWeight: 900,
               color: '#333',
-              letterSpacing: '4px',
+              letterSpacing: '2px',
             }}>
               You are not your user
             </span>
