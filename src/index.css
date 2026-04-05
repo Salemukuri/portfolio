@@ -43,6 +43,13 @@
 }
 
 @font-face {
+  font-family: 'Polla';
+  src: url('/fonts/polla.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'UrbanDecay';
   src: url('/fonts/urban-decay.ttf') format('truetype');
   font-weight: normal;
