@@ -4,6 +4,38 @@ import { ArrowLeft } from 'lucide-react';
 import MoreCaseStudies from '../components/MoreCaseStudies';
 
 const DQCaseStudy: React.FC = () => {
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [zoom, setZoom] = useState(2);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const isDragging = useRef(false);
+  const lastPos = useRef({ x: 0, y: 0 });
+
+  const openLightbox = (src: string) => { setLightboxSrc(src); setZoom(1); setPan({ x: 0, y: 0 }); };
+  const closeLightbox = () => setLightboxSrc(null);
+
+  const handleWheel = (e: React.WheelEvent) => {
+    e.preventDefault();
+    // scroll pans the image — deltaX for horizontal, deltaY for vertical
+    setPan(p => ({ x: p.x - e.deltaX, y: p.y - e.deltaY }));
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isDragging.current = true;
+    lastPos.current = { x: e.clientX, y: e.clientY };
+    e.preventDefault();
+  };
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current) return;
+    const dx = e.clientX - lastPos.current.x;
+    const dy = e.clientY - lastPos.current.y;
+    lastPos.current = { x: e.clientX, y: e.clientY };
+    setPan(p => ({ x: p.x + dx, y: p.y + dy }));
+  };
+  const handleMouseUp = () => { isDragging.current = false; };
+
+  const zoomIn = (e: React.MouseEvent) => { e.stopPropagation(); setZoom(z => Math.min(6, +(z + 0.5).toFixed(1))); };
+  const zoomOut = (e: React.MouseEvent) => { e.stopPropagation(); setZoom(z => Math.max(1, +(z - 0.5).toFixed(1))); };
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -80,6 +112,39 @@ const DQCaseStudy: React.FC = () => {
   }, [playing, resetHideTimer]);
   return (
     <>
+      {/* Lightbox */}
+      {lightboxSrc && (
+        <div
+          onClick={closeLightbox}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.92)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'default' }}
+        >
+          {/* Close */}
+          <button onClick={closeLightbox} style={{ position: 'absolute', top: 20, right: 28, color: '#fff', background: 'none', border: 'none', fontSize: 36, cursor: 'pointer', lineHeight: 1, zIndex: 10 }}>×</button>
+          {/* Zoom controls */}
+          <div style={{ position: 'absolute', top: 20, left: '50%', transform: 'translateX(-50%)', display: 'flex', alignItems: 'center', gap: 12, zIndex: 10 }}>
+            <button onClick={zoomOut} style={{ color: '#fff', background: 'rgba(255,255,255,0.15)', border: 'none', borderRadius: 6, width: 36, height: 36, fontSize: 22, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>−</button>
+            <span style={{ color: '#ccc', fontSize: 13, minWidth: 40, textAlign: 'center' }}>{Math.round(zoom * 100)}%</span>
+            <button onClick={zoomIn} style={{ color: '#fff', background: 'rgba(255,255,255,0.15)', border: 'none', borderRadius: 6, width: 36, height: 36, fontSize: 22, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>+</button>
+          </div>
+          <div style={{ fontSize: 13, color: '#aaa', position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)', whiteSpace: 'nowrap' }}>Scroll / drag to pan</div>
+          <div
+            onWheel={handleWheel}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onClick={e => e.stopPropagation()}
+            style={{ cursor: isDragging.current ? 'grabbing' : 'grab', overflow: 'hidden', maxWidth: '90vw', maxHeight: '85vh' }}
+          >
+            <img
+              src={lightboxSrc}
+              alt="Zoomed view"
+              draggable={false}
+              style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: 'center', maxWidth: '90vw', maxHeight: '85vh', display: 'block', willChange: 'transform', userSelect: 'none' }}
+            />
+          </div>
+        </div>
+      )}
       <style>{`
         .hero-title {
           font-size: 48px;
@@ -458,7 +523,7 @@ const DQCaseStudy: React.FC = () => {
                   We audited the existing site against Nielsen's usability principles. Critical violations included poor information hierarchy, inconsistent UI patterns, unclear navigation, and a homepage that communicated nothing within the first 5 seconds.
                 </p>
                 <div className="bg-gray-50 p-6 rounded-xl mb-10">
-                  <img src="/images/dq/DQ Heuristic Evaluation.png" alt="DQ heuristic evaluation findings" className="w-full rounded-lg" loading="lazy" />
+                  <img src="/images/dq/DQ Heuristic Evaluation.png" alt="DQ heuristic evaluation findings" className="w-full rounded-lg" loading="lazy" onClick={() => openLightbox('/images/dq/DQ Heuristic Evaluation.png')} style={{ cursor: 'zoom-in' }} />
                 </div>
 
                 <p className="subsection-heading">Stakeholder Interviews</p>
@@ -518,14 +583,14 @@ const DQCaseStudy: React.FC = () => {
                     </p>
                   </div>
                   <div className="bg-gray-50 p-6 rounded-xl">
-                    <img src="/images/dq/DQ-design-system.png" alt="DQ modernised visual language and design system" className="w-full rounded-lg" loading="lazy" />
+                    <img src="/images/dq/DQ-design-system.svg" alt="DQ modernised visual language and design system" className="w-full rounded-lg" loading="lazy" onClick={() => openLightbox('/images/dq/DQ-design-system.svg')} style={{ cursor: 'zoom-in' }} />
                   </div>
                 </div>
 
                 {/* Pillar 2 */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
                   <div className="bg-gray-50 p-6 rounded-xl order-2 lg:order-1">
-                    <img src="/images/dq/DQ-DNA.svg" alt="DQ surfacing the brand DNA through intentional copy and imagery" className="w-full rounded-lg" loading="lazy" />
+                    <img src="/images/dq/DQ-DNA.png" alt="DQ surfacing the brand DNA through intentional copy and imagery" className="w-full rounded-lg" loading="lazy" onClick={() => openLightbox('/images/dq/DQ-DNA.png')} style={{ cursor: 'zoom-in' }} />
                   </div>
                   <div className="order-1 lg:order-2">
                     <p className="body-text">
@@ -542,7 +607,7 @@ const DQCaseStudy: React.FC = () => {
                     </p>
                   </div>
                   <div className="bg-gray-50 p-6 rounded-xl">
-                    <img src="/images/dq/DQ-clarity-first.png" alt="DQ clarity first UVP simplification" className="w-full rounded-lg" loading="lazy" />
+                    <img src="/images/dq/DQ-clarity-first.png" alt="DQ clarity first UVP simplification" className="w-full rounded-lg" loading="lazy" onClick={() => openLightbox('/images/dq/DQ-clarity-first.png')} style={{ cursor: 'zoom-in' }} />
                   </div>
                 </div>
 
