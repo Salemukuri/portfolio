@@ -485,7 +485,7 @@ const JAACaseStudy: React.FC = () => {
                   For the look and feel, I wanted to create a refreshing, yet sophisticated UI that conveyed trustworthiness and progression for future-oriented individuals.
                 </p>
                 <p className="body-text mb-6">
-                  I also worked closely with the Admin module and Recruiters module design teams to define a design system with reusable UI elements — buttons, typography, icons and components — ensuring a unified visual language across all 3 modules.
+                  I also worked closely with the Admin module and Recruiters module design teams to define a design system with reusable UI elements like buttons, typography, icons and components, which ensured a unified visual language across all 3 modules.
                 </p>
                 <div className="bg-gray-50 p-6 rounded-xl mb-8">
                   <img
