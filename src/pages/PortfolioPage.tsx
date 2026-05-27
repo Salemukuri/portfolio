@@ -497,8 +497,8 @@ const PortfolioPage: React.FC = () => {
             whiteSpace: 'nowrap',
           }}>
             <span style={{
-              fontFamily: "'Polla', cursive",
-              fontSize: '36px',
+              fontFamily: "'YouMurderer', 'Arial Black', Impact, sans-serif",
+              fontSize: '42px',
               fontWeight: 900,
               color: '#333',
               letterSpacing: '2px',
