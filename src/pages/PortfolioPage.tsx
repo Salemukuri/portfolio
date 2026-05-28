@@ -312,7 +312,7 @@ const PortfolioPage: React.FC = () => {
                 <h1 className="page-title mb-4">portfolio.</h1>
                 <p className="intro-text mb-6">Check out some of my latest product design case studies.</p>
                 <p className="body-text">
-                  I've led product design for millions of users across startups, agencies, global corporations and international banking institutions.
+                  I've led product design for tens of millions of users across startups, agencies, global corporations and international banking institutions.
                 </p>
               </div>
               <div className="hidden lg:block">

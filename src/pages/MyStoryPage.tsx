@@ -98,7 +98,7 @@ const MyStoryPage: React.FC = () => {
             </h3>
             <p className="intro-text">
               Let me take you on a little journey through my career, because honestly, it's 
-              been one heck of an adventure. Spoiler alert: it involves engineering diagrams, 
+              been one heck of an adventure. Spoiler alert, it involves engineering diagrams, 
               copywriting mishaps, and landing in the wonderful world of Product.
             </p>
           </div>
@@ -121,7 +121,7 @@ const MyStoryPage: React.FC = () => {
               <p className="body-text">
                 It all started with me graduating as an <strong>Electrical and Telecommunication Engineer</strong>, the 
                 kind of person who could talk about circuits and signal modulation until you fell asleep. 
-                Don't get me wrong; I loved solving problems and designing systems. AutoCAD was basically 
+                Don't get me wrong, I loved solving problems and designing systems. AutoCAD was basically 
                 my second home during those days.
               </p>
               <p className="body-text">
@@ -146,7 +146,7 @@ const MyStoryPage: React.FC = () => {
                 And guess what? People actually liked them! Who would've thought?
               </p>
               <p className="body-text">
-                But here's the twist: after months of writing killer copies, I realized something. Words 
+                Then comes the twist. After months of writing killer copies, I realized something. Words 
                 are great; they can persuade, inspire, and even charm, but they can only go so far. If you 
                 really want users to stick around (and come back), you need to give them an experience 
                 worth remembering. An "aha!" moment later, I discovered <strong>UI/UX design</strong>, 
@@ -267,7 +267,7 @@ const MyStoryPage: React.FC = () => {
             </h2>
             <div className="space-y-6">
               <p className="body-text">
-                Let's be real: not every day is sunshine and perfectly aligned grids. Some days I spend hours perfecting micro-interactions, only to hear, ‘Actually, let’s pivot back to the first design,’ after weeks of iterations. Other 
+                Let's be real, not every day is sunshine and perfectly aligned grids. Some days I spend hours perfecting micro-interactions, only to hear, ‘Actually, let’s pivot back to the first design,’ after weeks of iterations. Other 
                 times, stakeholders ask for "something minimal but also packed with features."
               </p>
               <p className="body-text">
@@ -286,8 +286,7 @@ const MyStoryPage: React.FC = () => {
               <p className="body-text">
                 So, where am I headed next? Well, I'll keep doing what I love: blending tech and creativity 
                 to solve meaningful problems. If you're looking for someone who can turn complex ideas into 
-                delightful experiences, or just wants to swap funny design memes, let's chat! Together, we 
-                might just create something amazing.
+                delightful experiences, or just wants to swap funny design memes, let's chat!
               </p>
             </div>
           </div>
@@ -295,7 +294,7 @@ const MyStoryPage: React.FC = () => {
           {/* CTA Button */}
           <div className="text-center">
             <CtaLink to="/contact">
-              Let's Work Together
+              Let's Chat
             </CtaLink>
           </div>
 

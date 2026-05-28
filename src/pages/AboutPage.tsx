@@ -296,7 +296,7 @@ const AboutPage: React.FC = () => {
       <div className="order-1">
         <h2 className="section-heading mb-6">My story</h2>
         <p className="body-text mb-8">
-          Ever wondered how an electrical engineer ended up designing user experiences? Here's my story, how I transitioned into design, grew as a product designer and owner, and learned what truly makes users tick. Plus, sneak peeks of projects that shaped my journey.
+          Ever wondered how an electrical engineer ends up designing user experiences? Here's my story, how I transitioned into design, grew as a product designer and owner, and learned what truly makes users tick. Plus, sneak peeks of projects that shaped my journey.
         </p>
         <Link 
           to="/my-story"
