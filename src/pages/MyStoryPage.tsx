@@ -98,7 +98,7 @@ const MyStoryPage: React.FC = () => {
             </h3>
             <p className="intro-text">
               Let me take you on a little journey through my career, because honestly, it's 
-              been one heck of an adventure. Spoiler alert, it involves engineering diagrams, 
+              been one heck of an adventure. Spoiler alert: it involves engineering diagrams, 
               copywriting mishaps, and landing in the wonderful world of Product.
             </p>
           </div>
