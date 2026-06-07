@@ -286,7 +286,7 @@ const MyStoryPage: React.FC = () => {
               <p className="body-text">
                 So, where am I headed next? Well, I'll keep doing what I love: blending tech and creativity 
                 to solve meaningful problems. If you're looking for someone who can turn complex ideas into 
-                delightful experiences, or just wants to swap funny design memes, let's chat!
+                delightful experiences, or you just want to swap funny design memes, let's chat!
               </p>
             </div>
           </div>
